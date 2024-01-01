@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Element</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li class="lang">C++</li>
+    </ul>
+</body>
+<script>
+    //easy approach of adding new element
+    function addlanguage(langName){
+        const li = document.createElement('li');
+        li.innerText = `${langName}`;
+         document.querySelector('.language').appendChild(li);
+        }
+        
+        //optimised approach of adding new element
+        function addOptilanguage(langName){
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(langName));
+            document.querySelector('.language').appendChild(li);
+        }
+    
+
+    addlanguage("JS")
+    addlanguage("C")
+    addlanguage("python")
+
+    addOptilanguage("Golang")
+
+    //edit new element
+    const secondlang = document.querySelector("li:nth-child(2)");
+    // secondlang.innerHTML = "mojo"
+    const newli = document.createElement('li')
+    newli.textContent = "mojo";
+    secondlang.replaceWith(newli)
+    
+    //self edit
+    const firstlang = document.querySelector("li:nth-child(1)");
+    const newlii = document.createElement('li')
+    newlii.textContent = 'CSS';
+    firstlang.replaceWith(newlii)
+    
+    //remove
+    const lastlang = document.querySelector('li:last-child');
+    lastlang.remove();
+
+    </script>
+
+</html>
